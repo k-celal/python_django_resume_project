@@ -6,6 +6,8 @@ services:
       dockerfile: Dockerfile
     env_file:
       - python_django_resume_project/docker.env
+    volumes:
+      - .:/srv/app #continuous development
     ports:
       - "0.0.0.0:8000:8000"
     command: python manage.py runserver 0.0.0.0:8000
