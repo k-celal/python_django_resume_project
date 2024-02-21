@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core.apps.CoreConfig',
+    'contact'
 ]
 #sitemize yapılan istekler hangi aşamalardan geçecek
 MIDDLEWARE = [
