@@ -38,4 +38,4 @@ class Skill(AbstractBase):
     class Meta:
         verbose_name = "Skill"
         verbose_name_plural = "Skills"
-        ordering=('name','percentage')
+        ordering=('order',)
