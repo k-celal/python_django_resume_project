@@ -15,3 +15,10 @@ class ImageSettingAdmin(admin.ModelAdmin):
     list_editable = ('description', 'image')
     class Meta:
         model = ImageSetting
+@admin.register(Skill)
+class SkillAdmin(admin.ModelAdmin):
+    list_display = ('id','order','name', 'percentage', 'updated_date', 'created_date')
+    search_fields = ('name', 'percentage')
+    list_editable = ('order','percentage')
+    class Meta:
+        model = Skill

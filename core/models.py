@@ -1,3 +1,4 @@
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
 # Create your models here.
@@ -27,3 +28,14 @@ class ImageSetting(AbstractBase):
         verbose_name = "Image Setting"
         verbose_name_plural = "Image Settings"
         ordering=('name','description')
+
+class Skill(AbstractBase):
+    order = models.PositiveIntegerField(default=0,verbose_name='Order',help_text='Order of the skill')
+    name = models.CharField(default='',max_length=254,blank=True,verbose_name='Skill Name',help_text='Name of the skill')
+    percentage = models.PositiveIntegerField(default=50,verbose_name='Percentage',validators=[MinValueValidator(0),MaxValueValidator(100)],help_text='Percentage of the skill')
+    def __str__(self):
+        return f'Skill: {self.name}'
+    class Meta:
+        verbose_name = "Skill"
+        verbose_name_plural = "Skills"
+        ordering=('name','percentage')
