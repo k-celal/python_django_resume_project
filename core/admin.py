@@ -22,3 +22,10 @@ class SkillAdmin(admin.ModelAdmin):
     list_editable = ('order','percentage')
     class Meta:
         model = Skill
+@admin.register(Experience)
+class ExperienceAdmin(admin.ModelAdmin):
+    list_display = ('id','company', 'job_title', 'position', 'start_date', 'end_date', 'updated_date', 'created_date')
+    search_fields = ('company', 'job_title', 'position')
+    list_editable = ('job_title', 'position', 'start_date', 'end_date')
+    class Meta:
+        model = Experience

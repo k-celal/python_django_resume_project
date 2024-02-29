@@ -39,3 +39,15 @@ class Skill(AbstractBase):
         verbose_name = "Skill"
         verbose_name_plural = "Skills"
         ordering=('order',)
+class Experience(AbstractBase):
+    company = models.CharField(default='',max_length=254,blank=True,verbose_name='Company',help_text='Name of the company')
+    job_title = models.CharField(default='',max_length=254,blank=True,verbose_name='Job Title',help_text='Job title in the company')
+    position = models.CharField(default='',max_length=254,blank=True,verbose_name='Position',help_text='Position in the company')
+    start_date = models.DateField(blank=True,verbose_name='Start Date',help_text='Start date of the experience')
+    end_date = models.DateField(blank=True,null=True,verbose_name='End Date',help_text='End date of the experience')
+    def __str__(self):
+        return f'Experience: {self.company}'
+    class Meta:
+        verbose_name = "Experience"
+        verbose_name_plural = "Experiences"
+        ordering=('start_date',)
