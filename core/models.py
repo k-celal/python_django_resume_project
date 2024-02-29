@@ -52,3 +52,17 @@ class Experience(AbstractBase):
         verbose_name = "Experience"
         verbose_name_plural = "Experiences"
         ordering=('start_date',) #- for descending order
+
+class Education(AbstractBase):
+    school_name = models.CharField(default='',max_length=254,blank=True,verbose_name='School Name',help_text='Name of the school')
+    major = models.CharField(default='',max_length=254,blank=True,verbose_name='Major',help_text='Major in the school')
+    department = models.CharField(default='',max_length=254,blank=True,verbose_name='Department',help_text='Department in the school')
+    location = models.CharField(default='',max_length=254,blank=True,verbose_name='Location',help_text='Location of the school')
+    start_date = models.DateField(blank=True,verbose_name='Start Date',help_text='Start date of the education')
+    end_date = models.DateField(blank=True,null=True,verbose_name='End Date',help_text='End date of the education')
+    def __str__(self):
+        return f'Education: {self.school_name}'
+    class Meta:
+        verbose_name = "Education"
+        verbose_name_plural = "Educations"
+        ordering=('start_date',) #- for descending order

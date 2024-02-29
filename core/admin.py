@@ -29,3 +29,10 @@ class ExperienceAdmin(admin.ModelAdmin):
     list_editable = ('job_title', 'position', 'start_date', 'end_date', 'location')
     class Meta:
         model = Experience
+@admin.register(Education)
+class EducationAdmin(admin.ModelAdmin):
+    list_display = ('id','school_name', 'major', 'department','location', 'start_date', 'updated_date', 'created_date')
+    search_fields = ('school_name', 'major', 'department', 'location')
+    list_editable = ('major', 'department', 'start_date', 'location')
+    class Meta:
+        model = Education
