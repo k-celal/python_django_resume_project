@@ -51,4 +51,4 @@ class Experience(AbstractBase):
     class Meta:
         verbose_name = "Experience"
         verbose_name_plural = "Experiences"
-        ordering=('start_date',)
+        ordering=('start_date',) #- for descending order
