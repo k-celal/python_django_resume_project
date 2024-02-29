@@ -24,8 +24,8 @@ class SkillAdmin(admin.ModelAdmin):
         model = Skill
 @admin.register(Experience)
 class ExperienceAdmin(admin.ModelAdmin):
-    list_display = ('id','company', 'job_title', 'position', 'start_date', 'end_date', 'updated_date', 'created_date')
-    search_fields = ('company', 'job_title', 'position')
-    list_editable = ('job_title', 'position', 'start_date', 'end_date')
+    list_display = ('id','company', 'job_title', 'position', 'location','start_date', 'end_date', 'updated_date', 'created_date', )
+    search_fields = ('company', 'job_title', 'position', 'location')
+    list_editable = ('job_title', 'position', 'start_date', 'end_date', 'location')
     class Meta:
         model = Experience

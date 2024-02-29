@@ -43,6 +43,7 @@ class Experience(AbstractBase):
     company = models.CharField(default='',max_length=254,blank=True,verbose_name='Company',help_text='Name of the company')
     job_title = models.CharField(default='',max_length=254,blank=True,verbose_name='Job Title',help_text='Job title in the company')
     position = models.CharField(default='',max_length=254,blank=True,verbose_name='Position',help_text='Position in the company')
+    location = models.CharField(default='',max_length=254,blank=True,verbose_name='Location',help_text='Location of the company')
     start_date = models.DateField(blank=True,verbose_name='Start Date',help_text='Start date of the experience')
     end_date = models.DateField(blank=True,null=True,verbose_name='End Date',help_text='End date of the experience')
     def __str__(self):
