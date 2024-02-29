@@ -36,3 +36,10 @@ class EducationAdmin(admin.ModelAdmin):
     list_editable = ('major', 'department', 'start_date', 'location')
     class Meta:
         model = Education
+@admin.register(SocialLink)
+class SocialLinkAdmin(admin.ModelAdmin):
+    list_display = ('id','order','name','link','icon', 'updated_date', 'created_date')
+    search_fields = ('name','icon', 'link')
+    list_editable = ('order','name','link', 'icon')
+    class Meta:
+        model = SocialLink

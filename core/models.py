@@ -66,3 +66,15 @@ class Education(AbstractBase):
         verbose_name = "Education"
         verbose_name_plural = "Educations"
         ordering=('start_date',) #- for descending order
+
+class SocialLink(AbstractBase):
+    order = models.PositiveIntegerField(default=0,verbose_name='Order',help_text='Order of the social link')
+    name = models.CharField(default='',max_length=254,blank=True,verbose_name='Name',help_text='Name of the social link')
+    link = models.URLField(default='',max_length=254,blank=True,verbose_name='Link',help_text='Link of the social link')
+    icon = models.CharField(default='',max_length=254,blank=True,verbose_name='Icon',help_text='Icon of the social link')
+    def __str__(self):
+        return f'Social Link: {self.link}'
+    class Meta:
+        verbose_name = "Social Link"
+        verbose_name_plural = "Social Links"
+        ordering=('order',)

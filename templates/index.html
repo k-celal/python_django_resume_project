@@ -23,9 +23,9 @@
                                     <li><a href="#"><i class="lnr lnr-home"></i> Nigde/Merkez</a></li>
                                 </ul>
                                 <ul class="list personal_social">
-                                    <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                    {% for social_link in social_links %}
+                                    <li><a href={{ social_link.link }} target="_blank"><i class="{{ social_link.icon|safe }}"></i></a></li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
