@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from core.models import GeneralSetting, ImageSetting, Skill, Experience, Education, SocialLink
+from django.shortcuts import render, redirect, get_object_or_404
+from core.models import GeneralSetting, ImageSetting, Skill, Experience, Education, SocialLink, Documents
 
 
 # Create your views here.
@@ -29,6 +29,9 @@ def index(request):
 
     #social links
     social_links = SocialLink.objects.all().order_by('order')
+
+    #documents
+    documents = Documents.objects.all().order_by('order')
     context = {
         'site_title': site_title,
         'site_keywords': site_keywords,
@@ -45,5 +48,10 @@ def index(request):
         'experiences': experiences,
         'educations': educations,
         'social_links': social_links,
+        'documents': documents,
         }
     return render(request, 'index.html',context=context)
+
+def redirect_urls(request,slug):
+    doc = get_object_or_404(Documents, slug=slug)
+    return redirect(doc.file.url)
