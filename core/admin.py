@@ -19,7 +19,7 @@ class ImageSettingAdmin(admin.ModelAdmin):
 class SkillAdmin(admin.ModelAdmin):
     list_display = ('id','order','name', 'percentage', 'updated_date', 'created_date')
     search_fields = ('name', 'percentage')
-    list_editable = ('order','percentage')
+    list_editable = ('order','name','percentage')
     class Meta:
         model = Skill
 @admin.register(Experience)
