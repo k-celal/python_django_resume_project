@@ -1,9 +1,21 @@
 version: "3.8"
 services:
+  postgres:
+    image: postgres:latest
+    env_file:
+      - python_django_resume_project/docker.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - "postgres-data:/var/lib/postgresql/data"
+      - "./veritabani.sql:/veritabani.sql"
+    command: -p 5432
   app:
     build:
       context: .
       dockerfile: Dockerfile
+    depends_on:
+        - postgres
     env_file:
       - python_django_resume_project/docker.env
     volumes:
@@ -13,3 +25,4 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
 volumes:
   static-data:
+  postgres-data:
