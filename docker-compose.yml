@@ -22,7 +22,7 @@ services:
       - .:/srv/app #continuous development
     ports:
       - "0.0.0.0:8000:8000"
-    command: python manage.py runserver 0.0.0.0:8000
+    command: gunicorn python_django_resume_project.wsgi:application --bind 0.0.0.0:8000
 volumes:
   static-data:
   postgres-data:
